@@ -2,11 +2,11 @@
 
 ## Usage 
 ```
-$ java -jar cssgenerator-1.0-SNAPSHOT-jar-with-dependencies.jar "your-file.html"
+$ java -jar cssgenerator-1.0-SNAPSHOT-jar-with-dependencies.jar "your-component.html"
 ```
 
 ## Examples
-### your-file.html
+### your-component.html
 ```html
 <div class="c-card">
     <div class="header">
