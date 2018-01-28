@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
@@ -33,7 +34,7 @@ public class Main {
   public static void parseElement(Element element, List<String> cssLines) {
     List<String> cssSelector = new ArrayList<>();
     cssSelector(element, cssSelector);
-    if (cssSelector.size() > 0) {
+    if (!cssSelector.isEmpty()) {
       String line = String.join(" > ", cssSelector) + " {}";
       if (!cssLines.contains(line)) {
         cssLines.add(line);
@@ -56,12 +57,12 @@ public class Main {
   }
 
   public static String nodeName(Element element) {
-    if (element.className() == null || element.className() == "") {
+    if (element.className() == null || element.className().isEmpty()) {
       return element.tagName();
     } else {
-      String className = "";
+      String className = new String();
       if (element.className().contains(" ")) {
-        for (String str : element.className().split(" ")) {
+        for (String str : element.className().split("\\s+")) {
           className = className + "." + str.trim();
         }
       } else {
@@ -72,12 +73,10 @@ public class Main {
   }
 
   public static boolean isDOM(Element element) {
-    if (element.tagName() != "style"
-        && element.tagName() != "script"
-        && element.tagName() != "body") {
-      return true;
-    } else {
+    if (Arrays.asList("style", "script", "body", "html").contains(element.tagName())) {
       return false;
+    } else {
+      return true;
     }
   }
 }

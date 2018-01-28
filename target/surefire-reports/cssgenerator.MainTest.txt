@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: cssgenerator.MainTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.133 sec
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.155 sec
